@@ -1,10 +1,10 @@
-'use strict';
-const express = require('express');
+import express from 'express';
+
 const app = express();
 
-app.get('/', function(req, res){
-    res.sendFile(__dirname +'/static/html/index.html');
+app.get('/', (req, res) => {
+  res.sendFile(`${__dirname}/static/html/index.html`);
 });
-app.listen(3000, function(){
-    console.log('listening on *:3000');
+app.listen(3000, () => {
+
 });
