@@ -60,6 +60,7 @@ body{
     margin: 0;
     float: left;
     overflow: hidden;
+    z-index: 1;
 }
 
 .chatlogs {
@@ -70,6 +71,7 @@ body{
     background: #eee;
     overflow-x: hidden;
     overflow-y: scroll;
+
 }
 
 .chatlogs::-webkit-scrollbar {
@@ -209,4 +211,9 @@ iframe {
 .footer-info {
     color: #666666;
     font-family: 'Poppins', sans-serif;
+}
+
+.banner-div {
+    margin-top: 370px;
+    position: absolute;
 }
