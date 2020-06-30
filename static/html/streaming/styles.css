@@ -10,17 +10,24 @@ body{
 /* HEADER */
 
 .header {
+    display: flex;
     width: 100%;
-    height: 10vh;
-    text-align: center;
-    background: #ff0;
+    height: 11vh;
+    align-items: center;
+    justify-content: space-between;
+    background: black;
     overflow: hidden;
 }
+ .header-info {
+    margin-top: 5px;
+    margin-right: 1vw;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+ }
 
-.header .header-title {
-    font-size: 40px;
-    display: inline-block;
-    align-items: center;
+.header img {
+    margin-left: 1vw;
+    height: 40px;
 }
 
 
@@ -28,7 +35,7 @@ body{
 
 .content {
     width: 100%;
-    height: 80vh;
+    height: 82vh;
     overflow: hidden;
 }
 
@@ -38,8 +45,8 @@ body{
 .content .video {
     width: 70%;
     height: 100%;
-    background: #f0f;
     float: left;
+    background: linear-gradient( rgba(0,0,0,1) 30%, rgba(219,99,64,1) 70%);
 }
 
 
@@ -48,16 +55,16 @@ body{
 .content .chatbox {
     width: 29%;
     height: 100%;
-    background: #fff;
+    background: linear-gradient( rgba(0,0,0,1) 30%, rgba(219,99,64,1) 70%);
     padding: 5px;
     margin: 0;
-    box-shadow: 0 3px #ccc;
     float: left;
     overflow: hidden;
 }
 
 .chatlogs {
     padding: 10px;
+    border-radius: 10px;
     width: 95%;
     height: 66vh;
     background: #eee;
@@ -122,6 +129,7 @@ body{
     padding: 10px;
     font-size: 18px;
     color: #333;
+    border-radius: 15px;
 }
 
 .chat-form textarea:focus {
@@ -148,6 +156,7 @@ body{
     box-shadow: 0 3px 0 #0eb2c1;
     cursor: pointer;
     transition: 0.2s ease;
+    border-radius: 15px;
 
 }
 
@@ -159,10 +168,11 @@ body{
 /* FOOTER */
 
 .footer {
+    display: flex;
+    align-items: center;
     width: 100%;
-    height: 10vh;
-    text-align: center;
-    background: #ff0;
+    height: 7vh;
+    background: black;
     overflow: hidden;
 }
 
@@ -170,4 +180,33 @@ body{
     font-size: 40px;
     display: inline-block;
     align-items: center;
+}
+
+iframe {
+    position: absolute;
+    display: block;
+    height: 80%;
+    width: 85%;
+    border-radius: 15px;
+    z-index: 1;
+}
+
+.video {
+    flex-direction: column;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.banner {
+    justify-self : flex-end;
+    width: 100%;
+    z-index: 0;
+}
+
+.footer-info {
+    color: #666666;
+    font-family: 'Poppins', sans-serif;
 }
