@@ -8,7 +8,7 @@
     <title>Concert Login</title>
     <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="/css/index.css">
 </head>
 
 
@@ -16,7 +16,7 @@
 
     <header class="header" id="header">
 
-        <img src="../img/artifisse-logo.png" alt="Artífisse logo">
+        <img src="/img/artifisse-logo.png" alt="Artífisse logo">
         <div class="header-info">
             Tus artistas favoritos, en tu propia casa
         </div>
@@ -30,9 +30,9 @@
         <div class="content">
 
             <p class="subtitle">Escribe tu código</p>
-            <form action="/auth" method="POST" class="login">
+            <form action="/auth/" method="post" class="login">
 
-                <input type="text" class="login-code" id="login-code">
+                <input type="text" class="login-code" name="code" id="login-code">
                 <input type="submit" class="login-btn" id="login-btn" value="INGRESAR">
         
             </form>
@@ -40,12 +40,12 @@
             <div class="info-container">
 
                 <div class="info">
-                    <img src="../img/bulb-white.png" alt="bulb icon">
+                    <img src="/img/bulb-white.png" alt="bulb icon">
                     <p class="text-info">Recuerda que este <span>código único</span>  lo puedes<br>usar una sola vez en un dispositivo, así que<br><span>escoge</span> si quieres ver nuestro concierto<br>desde tu <span>celular o computador.</span></p>
                 </div>
 
                 <div class="info">
-                    <img src="../img/music-white.png" alt="music icon">
+                    <img src="/img/music-white.png" alt="music icon">
                     <p class="text-info">En caso de <span>cerrar la ventana</span> del ordenador<br>o dispositivo móvil, <span>no borres el historial</span><br><span>de cookies</span> y así podrás seguir disfrutando<br>del concierto.</p>
                 </div>
 
