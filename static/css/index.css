@@ -37,7 +37,7 @@ body{
     max-width: 1920px;
     height: 74vh;
     overflow: hidden; 
-    background-image: url("/img/banner-bottom.png");
+    background-image: url("../img/banner-bottom.png");
     background-position: bottom center;
     background-size: contain;
     background-repeat: no-repeat;
