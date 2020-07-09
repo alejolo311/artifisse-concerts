@@ -5,6 +5,8 @@
 
 body{
     font-family: 'Poppins', sans-serif;
+    max-width: 1920px;
+    min-width: 350px;
     background: #000;
 }
 
@@ -34,7 +36,6 @@ body{
 
 .content {
     width: 100%;
-    max-width: 1920px;
     height: 74vh;
     overflow: hidden; 
     background-image: url("../img/banner-bottom.png");
@@ -142,4 +143,21 @@ body{
     color: #666666;
     font-family: 'Poppins', sans-serif;
     margin-left: 15px;
+}
+
+
+/*----- RESPONSIVE -----*/
+
+@media screen and (max-width: 770px){
+
+    /* FORM */
+
+    .login .login-code {
+        width: 40%;
+        display: block;
+        margin-left: 27%;
+        margin-top: 10px;
+        margin-bottom: 25px;
+    }
+
 }
