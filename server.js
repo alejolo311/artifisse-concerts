@@ -21,6 +21,10 @@ let cookies;
 app.get('/', function(req, res){
     res.sendFile(path.join(public, '/html/index.html'));
 });
+app.get('/retry', function(req, res){
+  res.sendFile(path.join(public, '/html/error.html'));
+});
+
 
 app.get('/concert', function(req, res){
   if (/^([a-zA-Z]){5}([0-9]){4}([a-zA-Z])/.test(req.cookies["valid_code"]))
@@ -28,7 +32,7 @@ app.get('/concert', function(req, res){
     res.sendFile(path.join(public, '/html/streaming.html'));
   }
   else{
-    res.redirect("/"); 
+    res.redirect("/retry"); 
   }
 
 });
@@ -44,7 +48,7 @@ app.post('/auth', function(req, res) {
     res.cookie('valid_code', code);
     res.redirect("/concert")
   }else {
-    res.redirect("/") 
+    res.redirect("/retry") 
   }
 });
 

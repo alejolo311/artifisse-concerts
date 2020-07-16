@@ -134,6 +134,10 @@ iframe {
     background: #15a086;
     margin-left: 120px;
 }
+.not .chat-message {
+    background: #becfcc;
+    color: black;
+}
 
 .self .chat-message {
     background: #e0745a;
