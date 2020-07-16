@@ -132,6 +132,7 @@ iframe {
 
 .user .chat-message {
     background: #15a086;
+    margin-left: 120px;
 }
 
 .self .chat-message {

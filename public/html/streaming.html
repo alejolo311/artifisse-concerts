@@ -9,6 +9,8 @@
     <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/streaming.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 
 <body>
@@ -37,35 +39,12 @@
 
             <div class="chatbox" id="chatbox">
 
-                <div class="chatlogs">
-            
-                    <div class="chat user">
-                        <div class="user-photo"></div>
-                        <p class="chat-message">What's Up Bro</p>
-                    </div>
-            
-                    <div class="chat self">
-                        <div class="user-photo"></div>
-                        <p class="chat-message">What's going on?</p>
-                    </div>
-            
-                    <div class="chat user">
-                        <div class="user-photo"></div>
-                        <p class="chat-message">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente praesentium minima repellat debitis omnis autem, quos ad aliquid explicabo architecto commodi cumque tempore sit nihil accusantium quasi nobis id totam a dolores. Ducimus tempora fuga ea delectus corporis sapiente voluptatibus reiciendis error dolorem sit totam commodi quibusdam labore magnam vero natus nesciunt quos vel, enim, illum maiores. Dolores reiciendis mollitia architecto, repudiandae tempore rerum porro vitae quae. Nesciunt pariatur, incidunt sequi minima qui ad molestiae corrupti. Placeat necessitatibus aperiam ipsa debitis eveniet minima quam rem magni consequatur quos laudantium eligendi possimus hic, tenetur eaque amet reprehenderit excepturi natus. Illo, neque?</p>
-                    </div>
-
-                    <div class="chat self">
-                        <div class="user-photo"></div>
-                        <p class="chat-message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit molestiae voluptatum, consequatur labore ipsa dolorem exercitationem aliquam id architecto ratione blanditiis pariatur vitae velit sed veniam cumque doloremque maiores nemo!</p>
-                    </div>                    
-            
+                <div class="chatlogs" id="chatlogs">                
                 </div>
-            
-                <div class="chat-form">
+                <form class="chat-form" action="">
                     <textarea id="form-message"></textarea>
-                    <button class="chat-btn" id="chat-btn">Enviar</button>
-                </div>
-            
+                    <button type="submit" class="chat-btn" id="chat-btn">Enviar</button>
+                  </form>            
             </div>
 
             <!---------------------------------------------------------->
@@ -79,6 +58,47 @@
             © 2020    |    Artífisse    |    Colombia    |    Todos los derechos reservados
         </div>					
     </footer>
+    <script>
+        $(function () {
+            var socket = io();
+            let name;
+            if (getCookie("username") === "")
+            {
+                name = prompt('Cual es tu nombre de usuario?')
+                socket.emit('new-user', name)
+                document.cookie = "username=" + name;
+            }
+            else {
+                name = getCookie("username")
+            }
+
+            $('form').submit(function(e) {
+            e.preventDefault();
+            socket.emit('send-chat-message', $('#form-message').val());
+            $('#chatlogs').append("<div class='chat user'><p class='chat-message'>" + "<b>" + name + ": "+ $('#form-message').val() + "<p></div>");
+            $('#form-message').val('');
+            return false;
+            });
+            socket.on('chat-message', function(data){
+                $('#chatlogs').append("<div class='chat self'><p class='chat-message'>" + "<b>" + data.name + "</b>" + ": "+ data.message + "<p></div>");
+            });
+        });
+        function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for(var i = 0; i <ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+        }
+    </script>
     
 
 </body>
