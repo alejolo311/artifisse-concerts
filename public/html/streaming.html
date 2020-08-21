@@ -65,14 +65,6 @@
             const name = prompt('Cual es tu nombre de usuario?')
             socket.emit('new-user', name)
             document.cookie = "username=" + name;
-            socket.on('user-connected', name => {
-                $('#chatlogs').append("<div class='chat not'><p class='chat-message'>" + "<b>" + name + " se ha conectado"+"<p></div>");
-            })
-
-            socket.on('user-disconnected', name => {
-                $('#chatlogs').append("<div class='chat not'><p class='chat-message'>" + "<b>" + name + " se ha desconectado"+"<p></div>");
-            })
-
             $('form').submit(function(e) {
                 e.preventDefault();
                 if ($('#form-message').val().length == 0)
@@ -102,9 +94,7 @@
                     $scroll_down_chat.animate({ scrollTop: $scroll_down_chat[0].scrollHeight }, 'fast');
                     return false;
                 }
-            }, false);
-
-            
+            }, false);            
         });
         function getCookie(cname) {
         var name = cname + "=";
